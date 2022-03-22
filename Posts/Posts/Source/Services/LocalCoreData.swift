@@ -148,4 +148,25 @@ class LocalCoreData {
             print("Error while marking as Favorites")
         }
     }
+    
+    func markAllPostAsUnfavorites() {
+        let context =  stack.persistentContainer.viewContext
+        let request : NSFetchRequest<PostEntity> = PostEntity.fetchRequest()
+        
+        let predicate = NSPredicate(format: "favorite = \(true)")
+        request.predicate = predicate
+        
+        do {
+            let fetchedPosts = try context.fetch(request)
+            
+            for managedPost in fetchedPosts {
+                managedPost.favorite = false
+            }
+            
+            try context.save()
+    
+        } catch {
+            print("error while updating posts from Core Data")
+        }
+    }
 }
