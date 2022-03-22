@@ -10,6 +10,7 @@ import UIKit
 class FavoritesPostViewController: UIViewController {
     
     @IBOutlet private weak var favoriteTableView: UITableView!
+    @IBOutlet private weak var unmaskFavoritePost: UIBarButtonItem!
     
     var posts: [Post] = [Post]()
     let dataProvider = LocalCoreData()
@@ -17,6 +18,8 @@ class FavoritesPostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        unmaskFavoritePost.target = self
+        unmaskFavoritePost.action = #selector(unmaskFavoriteAllPost)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +72,11 @@ extension FavoritesPostViewController {
             self.posts = posts
             self.favoriteTableView.reloadData()
         }
+    }
+    
+    @objc func unmaskFavoriteAllPost() {
+        dataProvider.markAllPostAsUnfavorites()
+        favoriteTableView.reloadData()
     }
 }
 
