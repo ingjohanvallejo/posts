@@ -405,9 +405,13 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="5Db-T4-cij">
                             <color key="tintColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="star.slash" catalog="system" id="fAr-Ru-yBQ">
+                            <color key="tintColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="favoriteTableView" destination="R7v-pj-1fL" id="8GW-4w-Vpq"/>
+                        <outlet property="unmaskFavoritePost" destination="fAr-Ru-yBQ" id="wZI-Cb-jVQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikH-HE-8Cw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -488,10 +492,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lp9-RZ-t8d"/>
+        <segue reference="Vcn-1b-bzG"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.slash" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
