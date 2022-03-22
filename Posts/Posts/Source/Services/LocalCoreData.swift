@@ -20,7 +20,6 @@ class LocalCoreData {
         
         remoteService.getPosts(success: { posts in
             if let posts = posts {
-                //self.markAllPostAsUnsync()
                 for postDictionary in posts {
                     if let post = self.getPostById(id: postDictionary.id, favorite: false){
                         self.updatePost(postDictionary: postDictionary, post: post)
@@ -56,22 +55,6 @@ class LocalCoreData {
         }
         
     }
-    
-//    func markAllPostAsUnsync() {
-//        let context =  stack.persistentContainer.viewContext
-//        let request : NSFetchRequest<PostEntity> = PostEntity.fetchRequest()
-//
-//        do {
-//            let fetchedPosts = try context.fetch(request)
-//            for managedPost in fetchedPosts {
-//                managedPost.sync = false
-//            }
-//            try context.save()
-//
-//        } catch {
-//            print("error while updating posts from Core Data")
-//        }
-//    }
     
     func getPostById(id: Int, favorite: Bool) -> PostEntity?{
         let context =  stack.persistentContainer.viewContext
